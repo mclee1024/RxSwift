@@ -288,7 +288,9 @@ extension DelegateProxyType where ParentObject: HasDataSource, Self.Delegate == 
     }
 
     public static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject) {
-        object.dataSource = delegate
+        if delegate != nil {
+            object.dataSource = delegate
+        }
     }
 }
 
