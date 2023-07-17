@@ -232,7 +232,7 @@ extension DelegateProxyType {
 
             assert(delegate == nil || proxy._forwardToDelegate() === delegate, "Delegate was changed from time it was first set. Current \(String(describing: proxy.forwardToDelegate())), and it should have been \(proxy)")
 
-            proxy.setForwardToDelegate(nil, retainDelegate: retainDelegate)
+            // proxy.setForwardToDelegate(nil, retainDelegate: retainDelegate)
         }
     }
 }
@@ -288,9 +288,7 @@ extension DelegateProxyType where ParentObject: HasDataSource, Self.Delegate == 
     }
 
     public static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject) {
-        if delegate != nil {
-            object.dataSource = delegate
-        }
+        object.dataSource = delegate
     }
 }
 
